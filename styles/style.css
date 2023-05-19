@@ -1,7 +1,27 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
-  padding: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #005f99;
+  color: #fff;
+  padding: 1em 2em;
+}
+
+.nav-title {
+  margin: 0;
+}
+
+#app {
+  background-color: #e0f7ff;
+  padding: 2em;
+}
+
+.section-title {
+  color: #005f99;
 }
 
 form {
@@ -11,6 +31,16 @@ form {
 form input {
   padding: .5em;
   margin-right: .5em;
+  border: none;
+  border-radius: .25em;
+}
+
+form button {
+  background-color: #005f99;
+  color: #fff;
+  border: none;
+  border-radius: .25em;
+  padding: .5em 1em;
 }
 
 ul {
@@ -23,4 +53,5 @@ li {
   padding: .5em;
   margin-bottom: .5em;
   border-radius: .25em;
+  border-left: .25em solid #005f99;
 }

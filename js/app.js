@@ -15,7 +15,13 @@ new Vue({
               this.todos.push(this.newTodo);
               this.newTodo = '';
           })
-      }
+      },
+      removeTodo: function(index) {
+        axios.delete(`api.php?index=${index}`).then(response => {
+            this.todos = response.data;
+        });
+    }
+
   },
   mounted: function() {
       this.fetchTodos();
