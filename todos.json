@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "time": "09:00",
+    "title": "Fare la spesa",
+    "completed": false
+  },
+  {
+    "time": "10:30",
+    "title": "Fare il letto",
+    "completed": false
+  },
+  {
+    "time": "14:00",
+    "title": "Studiare",
+    "completed": true
+  },
+  {
+    "time": "09:00",
+    "title": "Leggere",
+    "completed": false
+  },
+  {
+    "time": "11:30",
+    "title": "Pulire la casa",
+    "completed": false
+  },
+  {
+    "time": "16:00",
+    "title": "Fare esercizio",
+    "completed": true
+  }
+]

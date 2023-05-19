@@ -1,31 +1,45 @@
 <!DOCTYPE html>
-<html lang="it">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
-    <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8">
+  <title>To-do App</title>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <div id="app">
-        <h1>To-do List</h1>
-        <form @submit.prevent="addTodo">
-            <input type="text" v-model="newTodo" placeholder="Aggiungi un todo">
-            <button type="submit">Aggiungi</button>
-        </form>
-        <ul>
-            <li v-for="todo in todos">{{ todo }}</li>
-        </ul>
-        <ul>
-          <li v-for="(todo, index) in todos">
-              {{ todo }}
-              <button @click="removeTodo(index)">Elimina</button>
-          </li>
-      </ul>
-      
+  <div id="app">
+    <h1>To-do App</h1>
+    <div class="form-container">
+      <input type="text" v-model="newTodo.title" placeholder="Aggiungi una nuova attività">
+      <input type="datetime-local" v-model="newTodo.datetime">
+      <button @click="addTodo">Aggiungi</button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/app.js"></script>
+    <table>
+      <thead>
+        <tr>
+          <th>Ora</th>
+          <th>Attività</th>
+          <th>Completa</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(todo, index) in todos" :key="index">
+          <td>{{ todo.datetime }}</td>
+          <td>{{ todo.title }}</td>
+          <td>
+            <input type="checkbox" v-model="todo.completed" @change="saveTodos">
+          </td>
+          <td>
+            <button @click="deleteTodo(index)">Elimina</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

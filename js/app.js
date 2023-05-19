@@ -1,29 +1,51 @@
-new Vue({
+const app = new Vue({
   el: '#app',
   data: {
-      todos: [],
-      newTodo: ''
+    todos: [],
+    newTodo: {
+      title: '',
+      datetime: ''
+    }
+  },
+  mounted() {
+    this.loadTodos();
   },
   methods: {
-      fetchTodos: function() {
-          axios.get('api.php').then(response => {
-              this.todos = response.data;
-          })
-      },
-      addTodo: function() {
-          axios.post('api.php', { todo: this.newTodo }).then(response => {
-              this.todos.push(this.newTodo);
-              this.newTodo = '';
-          })
-      },
-      removeTodo: function(index) {
-        axios.delete(`api.php?index=${index}`).then(response => {
-            this.todos = response.data;
+    loadTodos() {
+      axios
+        .get('todos.json')
+        .then(response => {
+          this.todos = response.data;
+        })
+        .catch(error => {
+          console.error(error);
         });
+    },
+    saveTodos() {
+      axios
+        .post('todos.php', this.todos)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    addTodo() {
+      if (this.newTodo.title !== '' && this.newTodo.datetime !== '') {
+        this.todos.push({
+          datetime: this.newTodo.datetime,
+          title: this.newTodo.title,
+          completed: false
+        });
+        this.newTodo.title = '';
+        this.newTodo.datetime = '';
+        this.todos();
+      }
+    },
+    deleteTodo(index) {
+      this.todos.splice(index, 1);
+      this.saveTodos();
     }
-
-  },
-  mounted: function() {
-      this.fetchTodos();
   }
 });
