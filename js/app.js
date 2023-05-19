@@ -40,7 +40,7 @@ const app = new Vue({
         });
         this.newTodo.title = '';
         this.newTodo.datetime = '';
-        this.todos();
+        
       }
     },
     deleteTodo(index) {
