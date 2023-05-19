@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 1em;
+}
+
+form {
+  margin-bottom: 1em;
+}
+
+form input {
+  padding: .5em;
+  margin-right: .5em;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  background-color: #fff;
+  padding: .5em;
+  margin-bottom: .5em;
+  border-radius: .25em;
+}
